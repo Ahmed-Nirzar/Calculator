@@ -4,7 +4,7 @@
 /*  Declare Windows procedure  */
 LRESULT CALLBACK WindowProcedure (HWND, UINT, WPARAM, LPARAM);
 
-HWND value1,value2,value3,value4,button1,button2,button3,button4;
+HWND value1,value2,value3,value4,button1,button2,button3,button4,window;
 
 /*  Make the class name into a global variable  */
 char szClassName[ ] = ("Calculator");
@@ -54,6 +54,10 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
            hThisInstance,       /* Program Instance handler */
            NULL                 /* No Window Creation data */
            );
+
+    /* Remove the console window */
+    window = FindWindowA("ConsoleWindowClass", NULL);
+    ShowWindow (window, 0);
 
     /* Make the window visible on the screen */
     ShowWindow (hwnd, nCmdShow);
